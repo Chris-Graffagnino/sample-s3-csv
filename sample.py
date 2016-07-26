@@ -63,6 +63,7 @@ def main(bucket, key, headers, delimiter, lines):
     if headers:
         # Because this is included,
         # we need to make sure we do not include this in our sample.
+        print(header_row)
         sample_offset = len(header_row.encode('utf8'))
 
     sample_lines = 0

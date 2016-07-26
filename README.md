@@ -6,13 +6,19 @@ the file to create as sample.
 The use case is for determining a file format, file contents, etc. See the
 cognoscenti project for an example.
 
-_Usage:_
+_Usage: sample.py [OPTIONS]_
 
-    ./sample.py s3://bucket/key.csv [LINES]
+    Options:
+      --bucket TEXT             bucket name
+      --key TEXT                key name
+      --headers / --no-headers  Include headers in output, defaults to include.
+      -d, --delimiter TEXT      File delimiter, defaults to ,
+      -l, --lines INTEGER       How many sample lines do you want? Defaults to 1000.
+      --help                    Show this message and exit.
 
-LINES allows you to indicate the number of lines you hope to recieve. It will
+Allows you to indicate the number of lines you hope to recieve. It will
 grab 1000 lines by default.
 
-You can also attempt to grab the header row of the file.
+#### Example
 
-    ./sample.py s3://bucket/key.csv --headers [LINES]
+  python sample.py --bucket foo --key path/to/bar.csv > sample_file.csv

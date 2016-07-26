@@ -1,10 +1,12 @@
-This utility allows you to take samples from an Amazon S3 key.
+This utility allows you to extsact sample lines from a CSV hosted on Amazon S3.
+The use case is that you have a really large CSV on S3 that you want to look at,
+but you do not want to download the entire file.
 
 What it does is grab random bytes from the key and assemble unbroken lines from
 the file to create as sample.
 
 The use case is for determining a file format, file contents, etc. See the
-cognoscenti project for an example.
+cognoscenti project for an example. (Um, this doesn't exist yet. Check back later.)
 
 _Usage: sample.py [OPTIONS]_
 

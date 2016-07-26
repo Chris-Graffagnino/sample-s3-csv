@@ -56,6 +56,7 @@ def main(bucket, key, headers, delimiter, lines):
     sample_offset = 0
     sample_bytes = 10000
 
+    # use the first line to guess at number of fields.
     header_row = get_headers(client, bucket, key, delimiter)
 
     number_of_fields = len(header_row.split(delimiter))
@@ -77,6 +78,7 @@ def main(bucket, key, headers, delimiter, lines):
             offset=random_offset,
             sample_bytes=sample_bytes)
         for line in sample.split(CR):
+            # only give me complete lines.
             if len(line.split(delimiter)) == number_of_fields:
                 print(line)
                 sample_lines += 1

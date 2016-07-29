@@ -13,8 +13,8 @@ _Usage: sample.py [OPTIONS]_
     Options:
       --bucket TEXT             bucket name
       --key TEXT                key name
-      --headers / --no-headers  Include headers in output, defaults to include.
-      -d, --delimiter TEXT      File delimiter, defaults to ,
+      --headers / --no-headers  Include headers in output. Defaults to include.
+      -d, --delimiter TEXT      File delimiter. Defaults to ','
       -l, --lines INTEGER       How many sample lines do you want? Defaults to 1000.
       --help                    Show this message and exit.
 

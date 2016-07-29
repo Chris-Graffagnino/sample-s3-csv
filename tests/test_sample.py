@@ -7,10 +7,11 @@ from samples3.sample import MAX_HEADER_OFFSET, get_headers
 class TestGetHeaders:
 
     def test_get_header_no_line_break(self):
+        """ If we look at a file that has no line break in the first
+        MAX_HEADER_OFFSET, then we should raise a ValueError and quit
+        attempting. """
 
         read_results = [b'*garbage*' * int(MAX_HEADER_OFFSET / 4)] * 2
-
-        print(len(read_results))
 
         mock_client = mock.Mock(**{
             'get_object.return_value': {

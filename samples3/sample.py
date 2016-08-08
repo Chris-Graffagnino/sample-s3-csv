@@ -1,6 +1,6 @@
 import random
-import click
 import boto3
+import sys
 
 # How many bytes should we keep looking for header length?
 MAX_HEADER_OFFSET = 100000
@@ -40,13 +40,7 @@ def get_sample(client, bucket, key, offset=0, sample_bytes=1000):
     return body_string
 
 
-@click.command()
-@click.option('--bucket', prompt='bucket name', help='bucket name')
-@click.option('--key', prompt='key name', help='key name')
-@click.option('--headers/--no-headers', default=True, help='Include headers?')
-@click.option('--delimiter', '-d', default=',', help='File delimiter')
-@click.option('--lines', '-l', default=1000, type=int, help='How many sample lines do you want?')
-def main(bucket, key, headers, delimiter, lines):
+def build_sample_file(bucket, key, headers, delimiter, lines, out=sys.stdout):
     client = get_s3_client()
 
     head_object = client.head_object(Bucket=bucket, Key=key)
@@ -64,7 +58,7 @@ def main(bucket, key, headers, delimiter, lines):
     if headers:
         # Because this is included,
         # we need to make sure we do not include this in our sample.
-        print(header_row)
+        out.write(header_row + CR)
         sample_offset = len(header_row.encode('utf8'))
 
     sample_lines = 0
@@ -80,10 +74,5 @@ def main(bucket, key, headers, delimiter, lines):
         for line in sample.split(CR):
             # only give me complete lines.
             if len(line.split(delimiter)) == number_of_fields:
-                print(line)
+                out.write(line + CR)
                 sample_lines += 1
-
-
-if __name__ == "__main__":
-    # execute only if run as a script
-    main()

@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+import click
+
+from samples3.sample import build_sample_file
+
+
+@click.command()
+@click.option('--bucket', prompt='bucket name', help='bucket name')
+@click.option('--key', prompt='key name', help='key name')
+@click.option('--headers/--no-headers', default=True, help='Include headers?')
+@click.option('--delimiter', '-d', default=',', help='File delimiter')
+@click.option('--lines', '-l', default=1000, type=int, help='How many sample lines do you want (at minimum)?')
+def main(bucket, key, headers, delimiter, lines):
+    build_sample_file(bucket, key, headers, delimiter, lines)
+
+
+if __name__ == "__main__":
+    # execute only if run as a script
+    main()

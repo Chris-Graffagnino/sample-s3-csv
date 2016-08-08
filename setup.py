@@ -27,7 +27,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/briandailey/sample-s3',
+    url='https://github.com/briandailey/sample-s3-csv',
 
     # Author details
     author='Brian Dailey',

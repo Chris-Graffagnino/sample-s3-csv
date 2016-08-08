@@ -1,6 +1,6 @@
 """A setuptools based setup module.
 See:
-https://github.com/briandailey/sample-s3
+https://github.com/briandailey/sample-s3-csv
 """
 
 # Always prefer setuptools over distutils
@@ -21,7 +21,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.1',
+    version='0.0.2',
 
     description='Create a sample data set from a large CSV file on Amazon S3.',
     long_description=long_description,

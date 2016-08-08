@@ -16,7 +16,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='sample_s3',
+    name='sample-s3',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -32,6 +32,8 @@ setup(
     # Author details
     author='Brian Dailey',
     author_email='brian@realm3.com',
+    maintainer='Brian Dailey',
+    maintainer_email='brian@realm3.com',
 
     # Choose your license
     license='MIT',

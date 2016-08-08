@@ -21,6 +21,12 @@ _Usage: sample.py [OPTIONS]_
 Allows you to indicate the number of lines you hope to recieve. It will
 grab 1000 lines by default.
 
+#### Installing
+
+You can install via pip:
+
+pip install sample-s3
+
 #### Example
 
-  python sample.py --bucket foo --key path/to/bar.csv > sample_file.csv
+  ss3 --bucket foo --key path/to/bar.csv > sample_file.csv

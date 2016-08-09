@@ -1,7 +1,7 @@
 import pytest
 import mock
 
-from samples3.sample import CR, MAX_HEADER_OFFSET, get_headers
+from sample_s3.sample import CR, MAX_HEADER_OFFSET, get_headers
 
 
 class TestGetHeaders:

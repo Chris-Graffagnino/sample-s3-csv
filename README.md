@@ -10,13 +10,13 @@ cognoscenti project for an example. (Um, this doesn't exist yet. Check back late
 
 _Usage: sample.py [OPTIONS]_
 
-    Options:
-      --bucket TEXT             bucket name
-      --key TEXT                key name
-      --headers / --no-headers  Include headers in output. Defaults to include.
-      -d, --delimiter TEXT      File delimiter. Defaults to ','
-      -l, --lines INTEGER       How many sample lines do you want? Defaults to 1000.
-      --help                    Show this message and exit.
+	Options:
+	  --bucket TEXT             Amazon S3 Bucket
+	  --key TEXT                Amazon S3 Key (e.g., file you want to inspect)
+	  --headers / --no-headers  Include the first row from the file?
+	  -d, --delimiter TEXT      Field delimiter
+	  -l, --lines INTEGER       How many sample lines do you want (at minimum)?
+	  --help                    Show this message and exit.
 
 Allows you to indicate the number of lines you hope to recieve. It will
 grab 1000 lines by default.

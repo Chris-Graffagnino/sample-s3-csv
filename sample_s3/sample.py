@@ -40,7 +40,20 @@ def get_sample(client, bucket, key, offset=0, sample_bytes=1000):
     return body_string
 
 
-def build_sample_file(bucket, key, headers, delimiter, lines, out=sys.stdout):
+def build_sample_file(bucket, key, headers=True, delimiter=',', lines=10000, out=sys.stdout):
+    """
+        Build a sample file from an S3 endpoint and assemble it into
+        the file-like object `out` (defaults to sys.stdout)
+
+        :param bucket: The name of the S3 bucket.
+        :param key: Path to the S3 key.
+        :param headers: If true, include first line of file.
+        :param delimiter: CSV delimiter, defaults to a comma.
+        :param lines: The minimum number of lines you with to sample.
+        :param out: Writes the sample to this File-like object.
+
+    """
+
     client = get_s3_client()
 
     head_object = client.head_object(Bucket=bucket, Key=key)
